@@ -35,6 +35,18 @@ Treat files as persistent project memory.
 Do not rely on conversation history alone to preserve important findings.
 
 
+## Project execution contracts and authorization
+
+When a project already defines a formal Task, explicit User dispatch, PASS/STOP gates, or an Evidence contract, that project contract takes precedence over this skill.
+
+- Use this skill only to organize long work and preserve context; it cannot expand execution authorization.
+- Subagents inherit only the permissions already granted for their assigned scope and cannot create new execution rights.
+- When a STOP condition is met, stop immediately. Do not continue to another cell or workload to finish the run or collect more evidence.
+- A diagnostic does not authorize a broader rerun, workaround, source modification, or later stage.
+- Prefer an existing project Evidence or working directory. Create `.agent-work` only when the project does not provide a more appropriate location.
+- Durable working files are context memory. They do not replace formal project Evidence, immutable Results, or Control rules.
+
+
 # 1. First understand the task
 
 Before doing extensive exploration, identify:
